@@ -75,7 +75,7 @@ class BuildRos2(CrossCompileCMakeProject):
         #
         # one day, if we're only running the purecap kernel, we can just append the path
         # of libPocoFoundation.so.71 to LD_CHERI_LIBRARY_PATH in _set_env() below.
-        poco_path = self.target_info.sysroot_install_prefix_absolute / "lib/libPocoUtil.so.71"
+        poco_path = self.target_info.sysroot_install_prefix_absolute / "lib/libPocoFoundation.so.71"
         if poco_path.is_file():
             self.info("Found pocofoundation:", poco_path)
             self.install_file(poco_path, self.source_dir / poco_path.name, force=True, print_verbose_only=False)
