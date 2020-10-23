@@ -39,7 +39,7 @@ from ...utils import get_compiler_info, set_env
 
 class BuildFreeRTOS(CrossCompileAutotoolsProject):
     repository = GitRepository("https://github.com/CTSRD-CHERI/FreeRTOS-mirror",
-                               force_branch=True, default_branch="cheri")
+                               force_branch=True, default_branch="modbus")
     target = "freertos"
     project_name = "freertos"
     dependencies = ["newlib", "compiler-rt-builtins"]
@@ -59,7 +59,15 @@ class BuildFreeRTOS(CrossCompileAutotoolsProject):
     # Map Demos and the FreeRTOS apps we support building/running for
     supported_demo_apps = {"RISC-V-Generic": ["main_blinky",
                                               "main_compartment_test",
-                                              "main_peekpoke"
+                                              "main_peekpoke",
+                                              "modbus_baseline",
+                                              "modbus_baseline_microbenchmark",
+                                              "modbus_cheri_layer",
+                                              "modbus_cheri_layer_microbenchmark",
+                                              "modbus_macaroons_layer",
+                                              "modbus_macaroons_layer_microbenchmark",
+                                              "modbus_cheri_macaroons_layers",
+                                              "modbus_cheri_macaroons_layers_microbenchmark"
                                              ]}
 
     default_demo = "RISC-V-Generic"
